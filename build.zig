@@ -50,7 +50,7 @@ pub fn build(b: *std.Build) !void {
     lib.addIncludePath(.{ .path = "lib/facil/http/parsers" });
 
     // C source files
-    lib.addCSourceFiles(&.{
+    lib.addCSourceFiles(.{.files=&.{
         "lib/facil/fio.c",
         "lib/facil/fio_zig.c",
         "lib/facil/http/http.c",
@@ -67,7 +67,7 @@ pub fn build(b: *std.Build) !void {
         "lib/facil/fiobj/fiobject.c",
         "lib/facil/fiobj/fiobj_mustache.c",
         "lib/facil/cli/fio_cli.c",
-    }, flags.items);
+    }});
 
     // link against libc
     lib.linkLibC();
