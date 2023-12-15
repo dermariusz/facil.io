@@ -67,7 +67,9 @@ pub fn build(b: *std.Build) !void {
         "lib/facil/fiobj/fiobject.c",
         "lib/facil/fiobj/fiobj_mustache.c",
         "lib/facil/cli/fio_cli.c",
-    }});
+    },
+    .flags=flags.items
+    });
 
     // link against libc
     lib.linkLibC();
